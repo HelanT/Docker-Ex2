@@ -1,7 +1,8 @@
-FROM java:11
+FROM openjdk:11
 
-EXPOSE 8080
+WORKDIR /app
+VOLUME ["/tmp"]
 
-ADD target/Docker-Ex2.jar Docker-Ex2.jar
+COPY target/Docker-Ex2.jar Docker-Ex2.jar
 
-ENTRYPOINT ["java","jar","Docker-Ex2.jar"]
+ENTRYPOINT ["java","-jar","Docker-Ex2.jar"]
